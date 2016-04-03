@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>百度前端任务4</title>
+	<style>
+  html,body{margin:0;padding:0;width:100%;height:100%;}
+	.outer-wrap{
+  width:100%;
+  height:100%;
+  display:table;
+ 
+  
+}
+
+.inner-wrap{
+  display:table-cell;
+   vertical-align: middle;
+  +position:relative;
+}
+.inner{
+  margin:0 auto;
+  width:400px;
+  height:200px;
+  +position:relative;
+  +top:50%;
+  +margin-top:-100px;/*针对IE 6 7 的hack */
+  background-color:#ccc;
+  position:relative;
+  }
+.circle1{
+  width:50px;
+  height:50px;
+ position:absolute;
+ top:0;
+ left:0;
+  background-color:#fc0;
+  border-radius: 0px 0px 50px 0px;
+}
+.circle2{
+  width:50px;
+  height:50px;
+ position:absolute;
+ top:150px;
+ left:350px;
+  background-color:#fc0;
+  border-radius: 50px 0px 0px 0px;
+}
+	</style>
+</head>
+<body>
+  <div class="outer-wrap">
+	 <div class="inner-wrap">
+      <div class="inner">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+      <div></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
