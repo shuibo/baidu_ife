@@ -1,0 +1,42 @@
+html,body{margin:0;padding:0;height:100%;width:100%;font: 14px/100% arial,"Hiragino Sans GB","Hiragino Sans GB W3",\5b8b\4f53;}
+	html,body,ul,li,div,a,h1,h2,h3,h4,pre{margin:0;padding:0;}
+	#wrap{width:100%;height:auto;background-color: #dedede;}
+	#nav{width:100%;background-color: #333;height: 60px;vertical-align: center;}
+    #logo{height:60px;width:155px;background: #333 url('images/baidulogo.png') no-repeat;position:absolute;}
+    #lianjie{float:right;height:40px;line-height: 60px;text-align: center;}
+    #lianjie ul li{float:left;color:#fff; font-size: 12px;width:60px;text-align: center;margin-right: 20px;}
+    #left{margin-right: 420px;margin-top:20px;padding:20px;}
+    
+
+    .artical{text-indent: 20px;background-color: #fff;margin-bottom: 20px;padding:20px;border-top:1px solid #cbcbcb;border-left:1px solid #cbcbcb;border-bottom:2px solid #9f9f9f;border-right:2px solid #9f9f9f;}
+    .artical h2{margin-bottom:20px;font-weight: bolder;}
+    .artical h3{  color:#7b7c6e;margin-bottom:20px;font-weight: bold;}
+    .artical h4{ color:#7b7c6e;font-size: 12px;}
+    
+    .artical img{display:block;}
+    .artical p{line-height: 2;}
+    #artical2 ul li{list-style: none;line-height: 2;}
+    #pic{background-color: #fff;}
+    #right{width:400px;float: right;margin-top:40px;margin-right:20px;height: 100%;}
+    form{background-color: #fff;font-size:12px;padding: 30px;border-top:1px solid #cbcbcb;border-left:1px solid #cbcbcb;border-bottom:2px solid #9f9f9f;border-right:2px solid #9f9f9f;}
+    form h3{font-weight: bold;margin-bottom: 20px;}
+    form span,form input{margin-bottom: 10px;}
+    form .beizhu{margin-bottom: 20px;color:#7b7c6e;margin-left:93px;}
+    #inner{margin-left: 50px;}
+    form input[type='submit']{background-color: #3355d0;border-radius:10px;width:320px;line-height: 30px;color:#fff;font-size:16px;border: none;margin-top: 10px;}
+    #description{position:relative;top:-140px;}
+    #pic{height:auto;overflow:hidden;box-sizing:border-box;}
+    
+    #pic ul li{float:left;list-style: none;margin-left:20px;border: 1px solid #eee;width:100px;height:100px;padding:4px;padding:10px;margin-bottom:20px;}
+    #pic ul li div{margin:0 auto;margin-bottom: 10px;font-size:12px;}
+    #pic ul li img{display:block;margin:0 auto;}
+    #lastartical{padding:20px;}
+    #lastartical ul li{line-height: 30px;list-style: none;font-weight: bold;}
+     #lastartical div{margin-top: 20px;}
+     #lastartical table{margin-top: 20px;border: 1px solid #eee;border-collapse: collapse;width:100%;box-sizing:border-box;+height:150px;text-align:left;}
+
+      #lastartical table td{border: 1px solid #eee;text-align: left;}
+       #lastartical table tr:first-child{background-color: #333;color:#fff;font-weight: bolder;}
+       #lastartical table tr:last-child{background-color: #ccc;font-weight: bolder;}
+       #footer{background-color:#000;width:100%;height:50px;padding:20px;}
+       #footer div{color:#fff;width:80px;margin:0px auto;}
