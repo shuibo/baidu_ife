@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>task14</title>
   </head>
-<body>
+<body onload=load()>
 
   <h3>污染城市列表</h3>
   <ul id="aqi-list">
@@ -24,8 +24,9 @@ var aqiData = [
   ["西安", 100]
 ];
 
-(function () {
 
+function load() {
+   alert("test")
   /*
   在注释下方编写代码
   遍历读取aqiData中各个城市的数据
@@ -43,7 +44,7 @@ var aqiData = [
      }
 
    }
-})();
+}
  function sortData(a, b)
   {
    return b[1]-a[1];
