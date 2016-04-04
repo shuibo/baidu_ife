@@ -31,10 +31,7 @@ var aqiData = [
   遍历读取aqiData中各个城市的数据
   将空气质量指数大于60的城市显示到aqi-list的列表中
   */
- function sortData(a, b)
-  {
-   return b[1]-a[1];
- }
+
  //按照数组中元素的第二个元素从大到小的顺序排列
   aqiData.sort(sortData);
   var ul=document.getElementById('aqi-list');
@@ -43,14 +40,14 @@ var aqiData = [
     var li=document.createElement("li");
      li.innerHTML="第"+(i+1)+"名的是"+aqiData[i][0]+"(样例)空气质量："+aqiData[i][1];
      ul.appendChild(li);
+     }
+
    }
-    
-      
-
-  }
-
 })();
-
+ function sortData(a, b)
+  {
+   return b[1]-a[1];
+ }
 </script>
 </body>
 </html>
