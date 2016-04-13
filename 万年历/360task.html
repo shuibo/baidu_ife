@@ -1,0 +1,48 @@
+<!DOCTYPE>
+<html>
+   <head>
+    <title>360前端任务二万年历</title>
+	<meta charset="utf8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <link rel="stylesheet" href="360task.css"/>
+    <script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+    <script src="360task.js"></script>
+  </head>
+<body >
+	<div id="Calendar">
+		<div id="Cal-nav">
+		  <img src="img/left.png" id="down-year" class="left-down"/>
+		  <select id="chooseYear"></select>
+		  <img src="img/right.png" id="up-year" class="right-up"/>
+		  <img src="img/left.png" id="down-month" class="left-down"/>
+		  <select id="chooseMonth"></select>
+		  <img src="img/right.png" id="up-month"class="right-up"/>
+		  <select id="holiday" >
+		  	<option id="first">2016年节假日安排</option>
+		  </select>
+		  <button id="return_today">返回今天</button>
+		  <p id="beijing-time">北京时间:</p>
+		</div>
+		<div id="Cal-table">
+			<table class="calendarShow" cellspacing="0">
+			  <tr>
+				<th>一</th>
+				<th>二</th>
+				<th>三</th>
+				<th>四</th>
+				<th>五</th>
+				<th>六</th>
+				<th>日</th>
+			</tr>
+			</table>
+		</div>
+		<div id="detailDate">
+			<p id="solarDate"></p>
+			<div id=date></div>
+			<p id="lunarDate"></p>
+			<p id="lunarYear"></p>
+			<hr class="line"/>
+		</div>
+	</div>
+</body>
+</html>
