@@ -119,7 +119,12 @@ $(document).ready(function(){
      }) ;
       //点击返回今天重新加载页面，显示当前的信息
      $("#return_today").on("click",function(){
-        location.reload();
+       // location.reload();
+         chooseYear.val(nowYear);
+         chooseMonth.val(nowMonth); 
+         $("#holiday").val(nowMonth);
+         redrawCalendar();
+          showDetailDate(thisYear,thisMonth,thisDay,lunar_day);
      });
      //给select元素绑定change事件 select的值发生变化则需要根据select的值重新生成日历
     $("#chooseYear").on("change",function(){
