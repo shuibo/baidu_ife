@@ -215,7 +215,7 @@ $(document).ready(function(){
     var option1=$("<option value='1月'>"+"元旦"+"</option><br/>");
    var option2=$("<option value='2月'>"+"春节"+"</option><br/>");
    var option3=$("<option value='3月'>"+"清明节"+"</option><br/>");
-   var option4=$("<option value='4月'>"+"劳动节"+"</option><br/>");
+   var option4=$("<option value='5月'>"+"劳动节"+"</option><br/>");
    var option5=$("<option value='6月'>"+"端午节"+"</option><br/>");
    var option6=$("<option value='9月'>"+"中秋节"+"</option><br/>");
    var option7=$("<option value='10月'>"+"国庆节"+"</option><br/>");
