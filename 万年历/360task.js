@@ -35,7 +35,7 @@ var solarTerm = new Array("小寒","大寒","立春","雨水","惊蛰","春分",
 
 //（各个节气到小寒的分钟数）
 var SolarTerms = new Array(0,21208,42467,63836,85337,107014,128867,150921,173149,195551,218072,240693,263343,285989,308563,331033,353350,375494,397447,419210,440795,462224,483532,504758);
-//星期
+//阴历中将数字转化为汉字所需要的数组
 var number_str1 = new Array('日','一','二','三','四','五','六','七','八','九','十');
 var number_str2 = new Array('初','十','廿','卅');
 //阳历节日
@@ -63,7 +63,7 @@ var solarHoliday = new Array(
 "1213 国家公祭日",
 "1224 平安夜",
 "1225 圣诞节")
-//2016年国家放假日期，钱两位表示月份后两位表示具体的日
+//2016年国家放假日期，前两位表示月份后两位表示具体的日
 var holiday2016 = new Array("0101","0102","0103","0207","0208","0209","0210","0211","0211",
   "0212","0213","0402","0403","0404","0430","0501","0502","0609","0610","0611",
   "0915","0916","0917","1001","1002","1003","1004","1005","1006","1007"
@@ -117,8 +117,9 @@ $(document).ready(function(){
          chooseYear.val("2016年")
          redrawCalendar();
      }) ;
-      //点击返回今天重新加载页面，显示当前的信息
+      //点击返回今天重新显示当前的信息
      $("#return_today").on("click",function(){
+
        // location.reload();
          chooseYear.val(nowYear);
          chooseMonth.val(nowMonth); 
@@ -211,7 +212,7 @@ $(document).ready(function(){
   });
     //为2016年假期安排下拉框添加子节点
   var holiday=$("#holiday");
- 
+
     var option1=$("<option value='1月'>"+"元旦"+"</option><br/>");
    var option2=$("<option value='2月'>"+"春节"+"</option><br/>");
    var option3=$("<option value='3月'>"+"清明节"+"</option><br/>");
@@ -299,7 +300,7 @@ $(document).ready(function(){
           {
            var m1=1+"月";
            var year_select=parseInt(chooseYear.val().match(/\d+/g));
-           //如果当前的年份是2050 ，且月份为12月，则显示2050年 12月
+           //如果当前的年份是2100 ，且月份为12月，则显示2100年 12月
               if(year_select==2100)
            {
              chooseYear.val("2100年");
@@ -330,7 +331,7 @@ $(document).ready(function(){
   setTimeout('showTime()',1000);//每隔一秒加载showTime()方法 
 }   
 
-//  校验时间，为了美观，使得秒、分钟为2位数  
+//  校验时间为两位数 
   function timeCheck(para){   
     if (para<10){
       para="0" + para;
@@ -354,7 +355,7 @@ function lYearDays(y) {
 
 //返回农历y年闰月的天数
 function leapDays(y) {
-  //(lunar_year[y-1900] & 0x10000)? 30: 29 判断是闰大月还是小月，润大月则加上30天，闰小月则加上29天
+  // 判断是闰大月还是小月，润大月则加上30天，闰小月则加上29天
    if(leapMonth(y))  return((lunar_year[y-1900] & 0x10000)? 30: 29);
    else return(0);
 }
@@ -382,22 +383,17 @@ function calateLun_Date(objDate) {
       totalDays -= temp;//totalDays减去这一年的天数
       this.monCyl += 12;//monCy1每次加12，记下当到那一年的时候 monCy1 累加的值
    }
-   //  alert("totalDays经过for循环之后的值"+totalDays)
    if(totalDays<0) {
       totalDays += temp;
       i--;
       this.monCyl -= 12;
    }
-   // alert("totalDays经过if之后的值"+totalDays)
     this.year = i;
-   // this.yearCyl=i-1864;//????????
    leap = leapMonth(i); //闰哪个月
    this.isLeap = false;//设定闰年标志位false
    for(i=1; i<13 && totalDays>0; i++) {
-   // alert("i的值"+i);
-  //  alert("totalDays的变化"+totalDays);
       if(leap>0 && i==(leap+1) && this.isLeap==false)
-      {    //闰月
+      {    
           --i; 
           this.isLeap = true; 
           temp = leapDays(this.year);//计算当年闰月的天数
@@ -485,7 +481,7 @@ var sec2=Date.UTC(1900,0,6,2,5);//负值
 
 }
 
-//保存y年m+1月的相关信息
+//y年(m+1)月的相关信息
 var eve=0;
 function calendar(y,m) {
    var sDateObj,lDObj,lY,lM,lD=1,lL,lX=0,tmp1,tmp2;
@@ -529,7 +525,6 @@ function calendar(y,m) {
 }
 //用中文显示农历的日期
 function cDay(d){
- // alert("d的值"+d);
    var s;
    switch (d) {
       case 10:
@@ -580,7 +575,6 @@ function showDetailDate(year,month,solar_d,lunar_d){
 //在表格中显示阳历和农历的日期
 function drawCalendar(year,month) {
    var i,sDate,s,size,t1 ,t2;
-  
  //  创建当前calendar对象
    thisMonth_cal = new calendar(year,month);
  // 一张日历表全部填满中可能出现上一个月的末尾部分日历信息，
@@ -749,7 +743,8 @@ function drawCalendar(year,month) {
                 if (eve==(thisMonth_cal[sDate].lDay))
                   {
                     p_lunar.html("除夕");
-                    lun_holiday="除夕";}
+                    lun_holiday="除夕";
+                  }
             }
         }
       // 判断当前的月份值是否与阳历的节日数组solarHoliday前面前两个数字相等
@@ -757,7 +752,6 @@ function drawCalendar(year,month) {
       //如果月份相等，则比较后面两位数字，后面数字如果相等，则当天即为该阳历节日 并显示  
             if (parseInt(solarHoliday[x].substr(0,2))==(month+1)){
                 if (parseInt(solarHoliday[x].substr(2,4))==(sDate+1)){
-                //  if(month==4 &&sDate==0) alert(solarHoliday[x].substr(5))
                    p_lunar.html(solarHoliday[x].substr(5));
                      p_lunar.addClass("red");
                     sol_holiday=solarHoliday[x].substr(5);
@@ -897,7 +891,6 @@ function drawCalendar(year,month) {
             if (parseInt(solarHoliday[z].substr(0,2))==(month+2)){
                //如果月份相等，则比较后面两位数字，后面数字如果相等，则当天即为该阳历节日 并显示  
                 if (parseInt(solarHoliday[z].substr(2,4))==(t2)){
-                  //  if(month==3&&t2==1) alert(solarHoliday[z].substr(5));            
                     p_lunar.html(solarHoliday[z].substr(5));
                      p_lunar.addClass("red")
                     sol_holiday_next=solarHoliday[z].substr(5);
@@ -943,7 +936,7 @@ function drawCalendar(year,month) {
     var chooseMonth=$("#chooseMonth");
     var y=parseInt(chooseYear.val().match(/\d+/g));
     var m=parseInt(chooseMonth.val().match(/\d+/g))-1;
-     //清空之前添加的背景色的类,以及标记类
+     //清空之前单元格添加类，不对生成的单元格有影响
     $(".calendarShow").find(".td_background1").removeClass("td_background1");
     $(".calendarShow").find(".today_background").removeClass("today_background");
     $(".calendarShow").find(".freeDay").removeClass("freeDay");

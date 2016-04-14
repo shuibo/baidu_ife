@@ -2,29 +2,38 @@
 <html>
    <head>
     <title>360前端任务二万年历</title>
-	<meta charset="utf8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1" charset="utf-8" />
     <link rel="stylesheet" href="360task.css"/>
     <script type="text/javascript" src="jquery-2.1.4.min.js"></script>
     <script src="360task.js"></script>
   </head>
 <body >
 	<div id="Calendar">
+	    <!-- 日历表格顶部一栏 -->
 		<div id="Cal-nav">
+		  <!--年份左侧的按钮 -->
 		  <img src="img/left.png" id="down-year" class="left-down"/>
-		  <select id="chooseYear"></select>
+		  <select id="chooseYear"></select><!-- 年份选择下拉框 -->
+		   <!--年份侧右的按钮 -->
 		  <img src="img/right.png" id="up-year" class="right-up"/>
+		   <!--月份左侧的按钮 -->
 		  <img src="img/left.png" id="down-month" class="left-down"/>
-		  <select id="chooseMonth"></select>
+		  <select id="chooseMonth"></select><!-- 月份选择下拉框 -->
+		    <!--月份右侧的按钮 -->
 		  <img src="img/right.png" id="up-month"class="right-up"/>
+		  <!-- 2016年节假日安排选择下拉框 -->
 		  <select id="holiday" >
 		  	<option id="first">2016年节假日安排</option>
 		  </select>
+		    <!--返回今天的按钮 -->
 		  <button id="return_today">返回今天</button>
+		    <!--北京时间显示的按钮 -->
 		  <p id="beijing-time">北京时间:</p>
 		</div>
+		  <!--日历表格 -->
 		<div id="Cal-table">
 			<table class="calendarShow" cellspacing="0">
+			  <!--表格的第一行显示星期 -->
 			  <tr>
 				<th>一</th>
 				<th>二</th>
@@ -36,12 +45,34 @@
 			</tr>
 			</table>
 		</div>
+		  <!--日历表格的右侧的显示详细日期信息 -->
 		<div id="detailDate">
+		    <!--阳历日期显示 -->
 			<p id="solarDate"></p>
+			 <!--阳历具体哪一日显示 -->
 			<div id=date></div>
+		     <!--阴历日期显示 -->
 			<p id="lunarDate"></p>
+			 <!--生肖显示 -->
 			<p id="lunarYear"></p>
 			<hr class="line"/>
+			 <!--宜 -->
+			<div id="fine">
+			  <p>宜</p>
+			  <p>祭祀</p>
+			  <p>修门</p>
+			  <p>取渔</p>
+			</div>
+			 <!--忌 -->
+			<div id="bad">
+			  <p>忌</p>
+			  <p>嫁娶</p>
+			  <p>入宅</p>
+			</div>
+			 <!--历史上的今天显示 -->
+			<div id="history_today">
+			   <a href="#">历史上的今天</a>
+			</div>
 		</div>
 	</div>
 </body>
