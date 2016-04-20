@@ -1,0 +1,98 @@
+<html>
+	<head>
+		<title>creating a blog</title>
+	<style type="text/css">
+        body{
+        	background-color: #7fffd4;
+        	border-width:1px;
+        	margin-left: 20%;
+        	margin-right: 20%;
+        }
+        p{
+        	margin-left: 1%;
+        	font-family: arial;
+        }
+	</style>
+	<script type="text/javascript">
+	//创建一个类
+		function BlogEntry() {
+			var date;
+			var message;
+			var name;
+			this.setDate=setDate;
+			this.setBlogger=setBlogger;
+			this.setMessage=setMessage;
+			this.showBlog=showBlog;
+   //类的方法定义
+			function setDate(){
+				var d=new Date();
+				var year=d.getFullYear();
+				var month=d.getMonth()+1;
+				var day=d.getDate();
+				date=month+"/"+day+"/"+year;
+			}
+			function setBlogger(nameVal){
+				name=nameVal;
+			}
+			function setMessage(messageVal){
+				message=messageVal;
+			}
+			function showBlog(){
+				//创建一个p元素
+				var para=document.createElement("p");
+				//获取p元素的个数
+				var count=document.getElementsByTagName('p').length;
+				//设置p元素的id
+				para.setAttribute('id','para'+count);
+				//创建一个换行元素br
+				var aBR=document.createElement("br");
+				//创建一个加粗元素 b
+				var aBlod=document.createElement("b");
+				//获取div
+				var divObj=document.getElementById('div1');	
+				divObj.appendChild(para);
+				//创建一个文本节点
+				var txt1=document.createTextNode("Posted by:"+name+" on");
+				var txt2=document.createTextNode(date);
+				var txt3=document.createTextNode(message);
+				//向p元素添加文本节点
+				para.appendChild(txt1);
+				para.appendChild(txt2);
+				aBlod.appendChild(aBR);
+				aBlod.appendChild(txt3);
+				para.appendChild(aBlod);
+			}
+		}
+
+		//定义一个增加blog的方法
+		function addBlog(){
+			message=document.getElementById("text").value;
+			bloggername=document.getElementById("name").value;
+			var blog=new BlogEntry();
+			blog.setMessage(message);
+			blog.setBlogger(bloggername);
+			blog.setDate();
+			blog.showBlog();
+		}
+	</script>
+  </head>
+  <body>
+  	<div align="center">
+  	</div>
+  	<h2 align="center">MoodyWedderBlog</h2>
+  	<div id="div1"></div>
+  	<br />
+  	<div align="center">
+  		<form method="post">
+  			Enter Your Name<br/>
+  			<input type="text" id="name" />
+  			<br />
+  			<br />
+  			<textarea id="text" cols="40" rows="5" name="text" onfocus="this.value='' ">
+  			</textarea>
+  			<br/>
+  			<input type="button" value="Add a Blog" onclick="addBlog()">
+  		</form>
+  	</div>
+  </body>
+</html>
